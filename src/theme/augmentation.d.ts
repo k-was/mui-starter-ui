@@ -1,7 +1,7 @@
-import "@mui/material/styles";
-import "@mui/material/Typography";
+import '@mui/material/styles';
+import '@mui/material/Typography';
 
-declare module "@mui/material/styles" {
+declare module '@mui/material/styles' {
   interface Palette {
     gold: {
       main: string;
@@ -61,7 +61,7 @@ declare module "@mui/material/styles" {
   }
 }
 
-declare module "@mui/material/Typography" {
+declare module '@mui/material/Typography' {
   interface TypographyPropsVariantOverrides {
     stat: true;
     label: true;
