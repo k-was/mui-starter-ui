@@ -1,25 +1,22 @@
-import { Components, Theme } from "@mui/material/styles";
+import { alpha, Components, Theme } from "@mui/material/styles";
+import { BLUR_XL, RADIUS_LG } from "../tokens";
 
 const MuiDialog: Components<Theme>["MuiDialog"] = {
   styleOverrides: {
-    paper: {
-      background: "rgba(17, 17, 20, 0.95)",
-      backdropFilter: "blur(20px)",
-      WebkitBackdropFilter: "blur(20px)",
-      border: "1px solid rgba(200, 165, 92, 0.1)",
-      borderRadius: 16,
-      boxShadow: "0 24px 48px rgba(0, 0, 0, 0.5)",
-    },
+    paper: ({ theme }) => ({
+      background: alpha(theme.palette.background.paper, 0.95),
+      backdropFilter: `blur(${BLUR_XL}px)`,
+      WebkitBackdropFilter: `blur(${BLUR_XL}px)`,
+      border: `1px solid ${alpha(theme.palette.primary.main, 0.1)}`,
+      borderRadius: RADIUS_LG,
+      boxShadow: `0 24px 48px ${alpha(theme.palette.common.black, 0.5)}`,
+    }),
   },
 };
 
 const MuiDialogTitle: Components<Theme>["MuiDialogTitle"] = {
-  styleOverrides: {
-    root: {
-      fontFamily: '"Playfair Display", serif',
-      fontWeight: 600,
-      fontSize: "1.25rem",
-    },
+  defaultProps: {
+    variant: "h4",
   },
 };
 

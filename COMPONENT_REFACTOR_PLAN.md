@@ -13,7 +13,7 @@ ERROR, WARNING, SUCCESS, INFO
 PURPLE, CYAN, ORANGE
 
 // Effects
-BLUR_SM (8), BLUR_MD (12), BLUR_LG (16)
+BLUR_SM (8), BLUR_MD (12), BLUR_LG (16), BLUR_XL (20)
 RADIUS_SM (8), RADIUS_MD (12), RADIUS_LG (16), RADIUS_XL (20)
 ```
 
@@ -46,21 +46,21 @@ theme.palette.error / .warning / .success / .info
 
 | Component | Hardcoded Values | Status |
 |-----------|-----------------|--------|
-| **MuiMenu.ts** | 6+ colors, radius `8-12px`, blur `12px`, shadow | ⬜ Todo |
-| **MuiDialog.ts** | 3 colors, radius `16px`, blur `20px`, shadow | ⬜ Todo |
-| **MuiSwitch.ts** | 3 colors, size `44x24px`, radius `12px` | ⬜ Todo |
-| **MuiIconButton.ts** | 4 colors, radius `10px` | ⬜ Todo |
-| **MuiCssBaseline.ts** | 6+ colors, scrollbar sizes | ⬜ Todo |
-| **MuiTooltip.ts** | 3 colors, radius `8px`, blur `12px` | ⬜ Todo |
+| **MuiMenu.ts** | 6+ colors, radius `8-12px`, blur `12px`, shadow | ✅ Done |
+| **MuiDialog.ts** | 3 colors, radius `16px`, blur `20px`, shadow | ✅ Done |
+| **MuiSwitch.ts** | 3 colors, size `44x24px`, radius `12px` | ✅ Done |
+| **MuiIconButton.ts** | 4 colors, radius `10px` | ✅ Done |
+| **MuiCssBaseline.ts** | 6+ colors, scrollbar sizes | ✅ Done |
+| **MuiTooltip.ts** | 3 colors, radius `8px`, blur `12px` | ✅ Done |
 
 ### Low Priority
 
 | Component | Hardcoded Values | Status |
 |-----------|-----------------|--------|
-| **MuiAvatar.ts** | 3 colors | ⬜ Todo |
-| **MuiDivider.ts** | 1 color | ⬜ Todo |
-| **MuiDrawer.ts** | 2 colors | ⬜ Todo |
-| **MuiPaper.ts** | 2 colors | ⬜ Todo |
+| **MuiAvatar.ts** | 3 colors | ✅ Done |
+| **MuiDivider.ts** | 1 color | ✅ Done |
+| **MuiDrawer.ts** | 2 colors | ✅ Done |
+| **MuiPaper.ts** | 2 colors | ✅ Done |
 
 ---
 
@@ -148,7 +148,7 @@ const MuiExample: Components<Theme>['MuiExample'] = {
 export const TRANSITION_FAST = '0.15s ease';
 export const TRANSITION_DEFAULT = '0.2s ease';
 
-// Maybe add BLUR_XL = 20 for dialogs
+// BLUR_XL = 20 added for dialogs ✅
 ```
 
 ### Consider for palette

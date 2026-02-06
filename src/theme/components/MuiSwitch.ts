@@ -1,4 +1,5 @@
 import { Components, Theme } from "@mui/material/styles";
+import { RADIUS_MD } from "../tokens";
 
 const MuiSwitch: Components<Theme>["MuiSwitch"] = {
   styleOverrides: {
@@ -7,27 +8,27 @@ const MuiSwitch: Components<Theme>["MuiSwitch"] = {
       height: 24,
       padding: 0,
     },
-    switchBase: {
+    switchBase: ({ theme }) => ({
       padding: 2,
       "&.Mui-checked": {
         transform: "translateX(20px)",
-        color: "#08080a",
+        color: theme.palette.primary.contrastText,
         "& + .MuiSwitch-track": {
-          backgroundColor: "#c8a55c",
+          backgroundColor: theme.palette.primary.main,
           opacity: 1,
         },
       },
-    },
+    }),
     thumb: {
       width: 20,
       height: 20,
       boxShadow: "none",
     },
-    track: {
-      borderRadius: 12,
-      backgroundColor: "rgba(200, 165, 92, 0.15)",
+    track: ({ theme }) => ({
+      borderRadius: RADIUS_MD, // pill shape — track doesn't inherit theme shape
+      backgroundColor: theme.palette.primary.glow,
       opacity: 1,
-    },
+    }),
   },
 };
 

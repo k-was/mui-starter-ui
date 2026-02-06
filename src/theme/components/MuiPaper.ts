@@ -5,11 +5,11 @@ const MuiPaper: Components<Theme>["MuiPaper"] = {
     elevation: 0,
   },
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       backgroundImage: "none",
-      backgroundColor: "#111114",
-      border: "1px solid rgba(200, 165, 92, 0.08)",
-    },
+      backgroundColor: theme.palette.background.paper,
+      border: `1px solid ${theme.palette.primary.border}`,
+    }),
   },
 };
 

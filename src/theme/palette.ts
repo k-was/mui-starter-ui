@@ -2,6 +2,8 @@ import { alpha } from "@mui/material/styles";
 import type { PaletteOptions } from "@mui/material/styles";
 import {
   PRIMARY,
+  PRIMARY_LIGHT,
+  PRIMARY_DARK,
   BG_DEFAULT,
   TEXT_SECONDARY,
   BG_PAPER,
@@ -22,8 +24,8 @@ const palette: PaletteOptions = {
 
   primary: {
     main: PRIMARY,
-    light: "#d4b76e",
-    dark: "#a88a3e",
+    light: PRIMARY_LIGHT,
+    dark: PRIMARY_DARK,
     contrastText: BG_DEFAULT,
     muted: alpha(PRIMARY, 0.25),
     faint: alpha(PRIMARY, 0.06),

@@ -1,3 +1,4 @@
+import { alpha, useTheme } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
@@ -96,11 +97,11 @@ const quickActions = ["New Project", "Invite Team", "Run Report", "View Logs"];
 
 function MiniChart({
   data,
-  color = "rgba(200,165,92,0.7)",
+  color,
   height = 48,
 }: {
   data: number[];
-  color?: string;
+  color: string;
   height?: number;
 }) {
   const max = Math.max(...data);
@@ -150,6 +151,9 @@ function MiniChart({
 }
 
 export default function DashboardPage() {
+  const theme = useTheme();
+  const chartColor = alpha(theme.palette.primary.main, 0.7);
+
   return (
     <Box sx={{ position: "relative", zIndex: 1 }}>
       {/* Header */}
@@ -244,7 +248,7 @@ export default function DashboardPage() {
                 action={<Chip label="+12.5%" color="success" size="small" />}
               />
               <CardContent sx={{ pt: 0 }}>
-                <MiniChart data={revenueData} height={120} />
+                <MiniChart color={chartColor} data={revenueData} height={120} />
                 <Box
                   sx={{
                     display: "flex",
@@ -299,7 +303,7 @@ export default function DashboardPage() {
               <CardContent sx={{ pt: 0 }}>
                 <MiniChart
                   data={userGrowthData}
-                  color="rgba(107,143,113,0.7)"
+                  color={chartColor}
                   height={140}
                 />
               </CardContent>

@@ -1,4 +1,5 @@
 import { Components, Theme } from "@mui/material/styles";
+import { BG_DEFAULT, BG_PAPER, TEXT_PRIMARY, PRIMARY } from "../tokens";
 
 const MuiCssBaseline: Components<Theme>["MuiCssBaseline"] = {
   styleOverrides: `
@@ -22,16 +23,16 @@ const MuiCssBaseline: Components<Theme>["MuiCssBaseline"] = {
     }
 
     body {
-      background: #08080a;
-      color: #e8e4dc;
+      background: ${BG_DEFAULT};
+      color: ${TEXT_PRIMARY};
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     ::selection {
-      background: rgba(200, 165, 92, 0.25);
-      color: #e8e4dc;
+      background: ${PRIMARY}40;
+      color: ${TEXT_PRIMARY};
     }
 
     ::-webkit-scrollbar {
@@ -42,19 +43,19 @@ const MuiCssBaseline: Components<Theme>["MuiCssBaseline"] = {
       background: transparent;
     }
     ::-webkit-scrollbar-thumb {
-      background: rgba(200, 165, 92, 0.15);
+      background: ${PRIMARY}26;
       border-radius: 3px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(200, 165, 92, 0.25);
+      background: ${PRIMARY}40;
     }
 
     input:-webkit-autofill,
     input:-webkit-autofill:hover,
     input:-webkit-autofill:focus {
-      -webkit-box-shadow: 0 0 0 100px #111114 inset !important;
-      -webkit-text-fill-color: #e8e4dc !important;
-      caret-color: #e8e4dc;
+      -webkit-box-shadow: 0 0 0 100px ${BG_PAPER} inset !important;
+      -webkit-text-fill-color: ${TEXT_PRIMARY} !important;
+      caret-color: ${TEXT_PRIMARY};
     }
   `,
 };

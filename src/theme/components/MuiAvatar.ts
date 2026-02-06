@@ -1,14 +1,14 @@
-import { Components, Theme } from "@mui/material/styles";
+import { alpha, Components, Theme } from "@mui/material/styles";
 
 const MuiAvatar: Components<Theme>["MuiAvatar"] = {
   styleOverrides: {
-    root: {
-      border: "2px solid rgba(200, 165, 92, 0.2)",
-      backgroundColor: "rgba(200, 165, 92, 0.1)",
-      color: "#c8a55c",
+    root: ({ theme }) => ({
+      border: `2px solid ${alpha(theme.palette.primary.main, 0.2)}`,
+      backgroundColor: alpha(theme.palette.primary.main, 0.1),
+      color: theme.palette.primary.main,
       fontWeight: 600,
       fontSize: "0.875rem",
-    },
+    }),
   },
 };
 
