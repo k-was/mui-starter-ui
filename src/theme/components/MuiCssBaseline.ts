@@ -1,6 +1,6 @@
-import { Components, Theme } from '@mui/material/styles';
+import { Components, Theme } from "@mui/material/styles";
 
-const MuiCssBaseline: Components<Theme>['MuiCssBaseline'] = {
+const MuiCssBaseline: Components<Theme>["MuiCssBaseline"] = {
   styleOverrides: `
     @keyframes grain {
       0%, 100% { transform: translate(0, 0); }

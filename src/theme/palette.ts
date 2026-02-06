@@ -1,36 +1,30 @@
-import { alpha } from '@mui/material/styles';
-import type { PaletteOptions } from '@mui/material/styles';
+import { alpha } from "@mui/material/styles";
+import type { PaletteOptions } from "@mui/material/styles";
+import {
+  PRIMARY,
+  BG_DEFAULT,
+  TEXT_SECONDARY,
+  BG_PAPER,
+  TEXT_PRIMARY,
+  TEXT_DISABLED,
+  ERROR,
+  WARNING,
+  SUCCESS,
+  INFO,
+  BG_SIDEBAR,
+  PURPLE,
+  CYAN,
+  ORANGE,
+} from "./tokens";
 
-// ── Base color tokens (single source of truth) ──────────────────────
-export const PRIMARY = '#c8a55c';
-export const BG_DEFAULT = '#08080a';
-export const BG_PAPER = '#111114';
-export const BG_SIDEBAR = '#0c0c0e';
-export const TEXT_PRIMARY = '#e8e4dc';
-export const TEXT_SECONDARY = '#8a8680';
-export const TEXT_DISABLED = '#555250';
-export const ERROR = '#e06c75';
-export const WARNING = '#e5c07b';
-export const SUCCESS = '#6b8f71';
-export const INFO = '#61afef';
-
-const PURPLE = '#c678dd';
-const CYAN = '#56b6c2';
-const ORANGE = '#d19a66';
-
-// ── Palette ──────────────────────────────────────────────────────────
 const palette: PaletteOptions = {
-  mode: 'dark',
+  mode: "dark",
 
   primary: {
-    // main: PRIMARY,
-    // contrastText: BG_DEFAULT,
-
-    main: '#c8a55c',
-    light: '#d4b76e',
-    dark: '#a88a3e',
-    contrastText: '#08080a',
-
+    main: PRIMARY,
+    light: "#d4b76e",
+    dark: "#a88a3e",
+    contrastText: BG_DEFAULT,
     muted: alpha(PRIMARY, 0.25),
     faint: alpha(PRIMARY, 0.06),
     glow: alpha(PRIMARY, 0.15),
@@ -38,11 +32,10 @@ const palette: PaletteOptions = {
   },
 
   secondary: {
-    main: '#8a8680',
-    light: '#a09c96',
-    dark: '#6a6660',
+    main: TEXT_SECONDARY,
+    light: "#a09c96",
+    dark: "#6a6660",
   },
-  // secondary: { main: TEXT_SECONDARY },
 
   background: {
     default: BG_DEFAULT,
@@ -55,8 +48,7 @@ const palette: PaletteOptions = {
     disabled: TEXT_DISABLED,
   },
 
-  //divider: alpha(PRIMARY, 0.08),
-  divider: 'rgba(200, 165, 92, 0.08)',
+  divider: alpha(PRIMARY, 0.08),
 
   error: { main: ERROR },
   warning: { main: WARNING },
@@ -77,16 +69,6 @@ const palette: PaletteOptions = {
   },
 
   chart: [PRIMARY, SUCCESS, INFO, ERROR, WARNING, PURPLE, CYAN, ORANGE],
-
-  gold: {
-    main: '#c8a55c',
-    light: '#d4b76e',
-    dark: '#a88a3e',
-    muted: 'rgba(200, 165, 92, 0.25)',
-    faint: 'rgba(200, 165, 92, 0.06)',
-    glow: 'rgba(200, 165, 92, 0.15)',
-    border: 'rgba(200, 165, 92, 0.12)',
-  },
 };
 
 export default palette;

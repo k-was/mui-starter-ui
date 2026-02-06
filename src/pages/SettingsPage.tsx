@@ -1,62 +1,62 @@
-import { useState } from 'react';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Typography from '@mui/material/Typography';
-import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
-import Switch from '@mui/material/Switch';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Grid from '@mui/material/Grid';
-import Divider from '@mui/material/Divider';
-import { motion } from 'motion/react';
+import { useState } from "react";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import Typography from "@mui/material/Typography";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Switch from "@mui/material/Switch";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Grid from "@mui/material/Grid";
+import Divider from "@mui/material/Divider";
+import { motion } from "motion/react";
 
 const MotionBox = motion.create(Box);
 
 const notifications = [
   {
-    label: 'Email Notifications',
-    desc: 'Receive email updates about your account activity.',
+    label: "Email Notifications",
+    desc: "Receive email updates about your account activity.",
     defaultOn: true,
   },
   {
-    label: 'Push Notifications',
-    desc: 'Get push notifications on your devices.',
+    label: "Push Notifications",
+    desc: "Get push notifications on your devices.",
     defaultOn: true,
   },
   {
-    label: 'Weekly Digest',
-    desc: 'Receive a weekly summary of your activity.',
+    label: "Weekly Digest",
+    desc: "Receive a weekly summary of your activity.",
     defaultOn: false,
   },
   {
-    label: 'Marketing Emails',
-    desc: 'Receive news about features and product updates.',
+    label: "Marketing Emails",
+    desc: "Receive news about features and product updates.",
     defaultOn: false,
   },
   {
-    label: 'Security Alerts',
-    desc: 'Get notified about security events on your account.',
+    label: "Security Alerts",
+    desc: "Get notified about security events on your account.",
     defaultOn: true,
   },
 ];
 
 const themes = [
-  { label: 'Dark', color: '#08080a' },
-  { label: 'Light', color: '#f5f3ef' },
+  { label: "Dark", color: "#08080a" },
+  { label: "Light", color: "#f5f3ef" },
   {
-    label: 'System',
-    gradient: 'linear-gradient(135deg, #08080a 50%, #f5f3ef 50%)',
+    label: "System",
+    gradient: "linear-gradient(135deg, #08080a 50%, #f5f3ef 50%)",
   },
 ];
 
 const accents = [
-  { label: 'Gold', color: '#c8a55c' },
-  { label: 'Rose', color: '#e06c75' },
-  { label: 'Blue', color: '#61afef' },
-  { label: 'Emerald', color: '#6b8f71' },
-  { label: 'Purple', color: '#c678dd' },
+  { label: "Gold", color: "#c8a55c" },
+  { label: "Rose", color: "#e06c75" },
+  { label: "Blue", color: "#61afef" },
+  { label: "Emerald", color: "#6b8f71" },
+  { label: "Purple", color: "#c678dd" },
 ];
 
 export default function SettingsPage() {
@@ -68,7 +68,7 @@ export default function SettingsPage() {
   );
 
   return (
-    <Box sx={{ position: 'relative', zIndex: 1 }}>
+    <Box sx={{ position: "relative", zIndex: 1 }}>
       <MotionBox
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: 1, y: 0 }}
@@ -137,7 +137,7 @@ export default function SettingsPage() {
                   />
                 </Grid>
               </Grid>
-              <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+              <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
                 <Button variant="contained">Save Changes</Button>
               </Box>
             </CardContent>
@@ -185,7 +185,7 @@ export default function SettingsPage() {
                   />
                 </Grid>
               </Grid>
-              <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+              <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
                 <Button variant="contained">Save Changes</Button>
               </Box>
             </CardContent>
@@ -209,16 +209,16 @@ export default function SettingsPage() {
                 <Box key={notif.label}>
                   <Box
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                       py: 2,
                     }}
                   >
                     <Box>
                       <Typography
                         variant="body1"
-                        sx={{ color: 'text.primary', fontWeight: 500 }}
+                        sx={{ color: "text.primary", fontWeight: 500 }}
                       >
                         {notif.label}
                       </Typography>
@@ -253,14 +253,14 @@ export default function SettingsPage() {
               <Typography variant="h5" sx={{ mb: 3 }}>
                 Theme
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2, mb: 4 }}>
+              <Box sx={{ display: "flex", gap: 2, mb: 4 }}>
                 {themes.map((t, i) => (
                   <Box
                     key={t.label}
                     onClick={() => setSelectedTheme(i)}
                     sx={{
-                      cursor: 'pointer',
-                      textAlign: 'center',
+                      cursor: "pointer",
+                      textAlign: "center",
                     }}
                   >
                     <Box
@@ -269,24 +269,26 @@ export default function SettingsPage() {
                         height: 56,
                         borderRadius: 2,
                         background: t.gradient || t.color,
-                        border: '2px solid',
+                        border: "2px solid",
                         borderColor:
                           selectedTheme === i
-                            ? 'gold.main'
-                            : 'rgba(200,165,92,0.08)',
+                            ? "primary.main"
+                            : "rgba(200,165,92,0.08)",
                         mb: 1,
-                        transition: 'border-color 0.2s',
+                        transition: "border-color 0.2s",
                         boxShadow:
                           selectedTheme === i
-                            ? '0 0 12px rgba(200,165,92,0.2)'
-                            : 'none',
+                            ? "0 0 12px rgba(200,165,92,0.2)"
+                            : "none",
                       }}
                     />
                     <Typography
                       variant="caption"
                       sx={{
                         color:
-                          selectedTheme === i ? 'gold.main' : 'text.secondary',
+                          selectedTheme === i
+                            ? "primary.main"
+                            : "text.secondary",
                       }}
                     >
                       {t.label}
@@ -298,29 +300,29 @@ export default function SettingsPage() {
               <Typography variant="h5" sx={{ mb: 3 }}>
                 Accent Color
               </Typography>
-              <Box sx={{ display: 'flex', gap: 2 }}>
+              <Box sx={{ display: "flex", gap: 2 }}>
                 {accents.map((a, i) => (
                   <Box
                     key={a.label}
                     onClick={() => setSelectedAccent(i)}
-                    sx={{ cursor: 'pointer', textAlign: 'center' }}
+                    sx={{ cursor: "pointer", textAlign: "center" }}
                   >
                     <Box
                       sx={{
                         width: 40,
                         height: 40,
-                        borderRadius: '50%',
+                        borderRadius: "50%",
                         bgcolor: a.color,
-                        border: '3px solid',
+                        border: "3px solid",
                         borderColor:
-                          selectedAccent === i ? 'white' : 'transparent',
+                          selectedAccent === i ? "white" : "transparent",
                         outline:
                           selectedAccent === i
                             ? `2px solid ${a.color}`
-                            : 'none',
+                            : "none",
                         outlineOffset: 2,
                         mb: 1,
-                        transition: 'all 0.2s',
+                        transition: "all 0.2s",
                       }}
                     />
                     <Typography
@@ -328,8 +330,8 @@ export default function SettingsPage() {
                       sx={{
                         color:
                           selectedAccent === i
-                            ? 'text.primary'
-                            : 'text.secondary',
+                            ? "text.primary"
+                            : "text.secondary",
                       }}
                     >
                       {a.label}
@@ -373,29 +375,29 @@ export default function SettingsPage() {
               </Typography>
               {[
                 {
-                  label: 'Two-Factor Authentication',
-                  desc: 'Add an extra layer of security to your account.',
+                  label: "Two-Factor Authentication",
+                  desc: "Add an extra layer of security to your account.",
                   defaultOn: false,
                 },
                 {
-                  label: 'Session Timeout',
-                  desc: 'Automatically log out after period of inactivity.',
+                  label: "Session Timeout",
+                  desc: "Automatically log out after period of inactivity.",
                   defaultOn: true,
                 },
               ].map((item, i) => (
                 <Box key={item.label}>
                   <Box
                     sx={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'space-between',
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
                       py: 2,
                     }}
                   >
                     <Box>
                       <Typography
                         variant="body1"
-                        sx={{ color: 'text.primary', fontWeight: 500 }}
+                        sx={{ color: "text.primary", fontWeight: 500 }}
                       >
                         {item.label}
                       </Typography>
@@ -407,7 +409,7 @@ export default function SettingsPage() {
                 </Box>
               ))}
 
-              <Box sx={{ mt: 3, display: 'flex', justifyContent: 'flex-end' }}>
+              <Box sx={{ mt: 3, display: "flex", justifyContent: "flex-end" }}>
                 <Button variant="contained">Update Security</Button>
               </Box>
             </CardContent>

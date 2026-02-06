@@ -1,17 +1,22 @@
-import '@mui/material/styles';
-import '@mui/material/Typography';
+import "@mui/material/styles";
+import "@mui/material/Typography";
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
+  interface PaletteColor {
+    muted: string;
+    faint: string;
+    glow: string;
+    border: string;
+  }
+
+  interface SimplePaletteColorOptions {
+    muted?: string;
+    faint?: string;
+    glow?: string;
+    border?: string;
+  }
+
   interface Palette {
-    gold: {
-      main: string;
-      light: string;
-      dark: string;
-      muted: string;
-      faint: string;
-      glow: string;
-      border: string;
-    };
     sidebar: {
       bg: string;
       hover: string;
@@ -27,15 +32,6 @@ declare module '@mui/material/styles' {
   }
 
   interface PaletteOptions {
-    gold?: {
-      main?: string;
-      light?: string;
-      dark?: string;
-      muted?: string;
-      faint?: string;
-      glow?: string;
-      border?: string;
-    };
     sidebar?: {
       bg?: string;
       hover?: string;
@@ -61,7 +57,7 @@ declare module '@mui/material/styles' {
   }
 }
 
-declare module '@mui/material/Typography' {
+declare module "@mui/material/Typography" {
   interface TypographyPropsVariantOverrides {
     stat: true;
     label: true;

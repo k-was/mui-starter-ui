@@ -1,9 +1,9 @@
-import { Shadows } from '@mui/material/styles';
+import { Shadows } from "@mui/material/styles";
 
-const gold = '200, 165, 92';
+const gold = "200, 165, 92";
 
 const shadows: Shadows = [
-  'none',
+  "none",
   `0 1px 2px rgba(${gold}, 0.04)`,
   `0 2px 4px rgba(${gold}, 0.04)`,
   `0 3px 6px rgba(${gold}, 0.04)`,
