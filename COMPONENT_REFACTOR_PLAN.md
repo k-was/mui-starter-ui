@@ -36,11 +36,11 @@ theme.palette.error / .warning / .success / .info
 |-----------|-----------------|--------|
 | **MuiCard.ts** | colors, blur, radius | ✅ Done |
 | **MuiButton.ts** | 10+ colors, radius `10px`, padding, shadows | ✅ Done |
-| **MuiTextField.ts** | 8+ colors, radius `10px`, shadow | ⬜ Todo |
-| **MuiTabs.ts** | 8+ colors, radius `8-10px`, minHeight, padding | ⬜ Todo |
-| **MuiList.ts** | 7+ colors, radius `10px`, padding | ⬜ Todo |
-| **MuiChip.ts** | 12+ colors, radius `8px`, height `28px` | ⬜ Todo |
-| **MuiAlert.ts** | 8 semantic colors, radius `12px`, blur `8px` | ⬜ Todo |
+| **MuiTextField.ts** | 8+ colors, radius `10px`, shadow | ✅ Done |
+| **MuiTabs.ts** | 8+ colors, radius `8-10px`, minHeight, padding | ✅ Done |
+| **MuiList.ts** | 7+ colors, radius `10px`, padding | ✅ Done |
+| **MuiChip.ts** | 12+ colors, radius `8px`, height `28px` | ✅ Done |
+| **MuiAlert.ts** | 8 semantic colors, radius `12px`, blur `8px` | ✅ Done |
 
 ### Medium Priority
 
@@ -83,7 +83,7 @@ theme.palette.error / .warning / .success / .info
 - `#e8e4dc` → `theme.palette.text.primary`
 - `#555250` → `theme.palette.text.disabled`
 - `rgba(200,165,92,0.08)` → `theme.palette.primary.border`
-- `borderRadius: 10` → `RADIUS_MD` or token
+- `borderRadius: 10` → remove (inherits default)
 
 ### MuiAlert.ts
 - `#6b8f71` → `theme.palette.success.main`
@@ -106,14 +106,21 @@ theme.palette.error / .warning / .success / .info
 
 ---
 
-## Pattern to Follow
+## Rules
 
-Use callback style for theme access:
+### Don't repeat theme defaults
+- **`borderRadius`**: `shape.ts` sets the theme default to `RADIUS_MD` (12). Do NOT redeclare `borderRadius` unless the component needs a different value. If it does differ, use a token (e.g. `RADIUS_SM`, `RADIUS_LG`) and leave a comment explaining why.
+- **`typography.button`**: Already defines `fontWeight`, `fontSize`, `letterSpacing`, and `textTransform` for buttons. Do NOT redeclare these in `MuiButton` root unless overriding with a different value.
+- **General rule**: If a value matches what the theme already provides, omit it. Only set it explicitly when deviating, and add a comment justifying the deviation.
+
+### Non-default values
+When a component intentionally uses a value that differs from the theme default (e.g. `RADIUS_SM` instead of `RADIUS_MD`, or a custom pixel size), that's fine to hardcode — just leave a short comment in the code explaining why it differs.
+
+### Use callback style for theme access
 
 ```ts
 import { alpha, Components, Theme } from '@mui/material/styles';
-import { BLUR_MD } from '../tokens';
-import { RADIUS_LG } from '../shape';
+import { BLUR_MD, RADIUS_LG } from '../tokens';
 
 const MuiExample: Components<Theme>['MuiExample'] = {
   styleOverrides: {
@@ -121,7 +128,7 @@ const MuiExample: Components<Theme>['MuiExample'] = {
       background: alpha(theme.palette.background.paper, 0.6),
       backdropFilter: `blur(${BLUR_MD}px)`,
       border: `1px solid ${theme.palette.primary.border}`,
-      borderRadius: RADIUS_LG,
+      borderRadius: RADIUS_LG, // larger than default for card-like surfaces
       color: theme.palette.text.primary,
       '&:hover': {
         borderColor: alpha(theme.palette.primary.main, 0.15),

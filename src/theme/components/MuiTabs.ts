@@ -1,14 +1,14 @@
-import { Components, Theme } from "@mui/material/styles";
+import { alpha, Components, Theme } from "@mui/material/styles";
+import { RADIUS_SM } from "../tokens";
 
 const MuiTabs: Components<Theme>["MuiTabs"] = {
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       minHeight: 40,
-      backgroundColor: "rgba(17, 17, 20, 0.6)",
-      borderRadius: 10,
+      backgroundColor: alpha(theme.palette.background.paper, 0.6),
       padding: 4,
-      border: "1px solid rgba(200, 165, 92, 0.08)",
-    },
+      border: `1px solid ${theme.palette.primary.border}`,
+    }),
     indicator: {
       display: "none",
     },
@@ -20,24 +20,24 @@ const MuiTabs: Components<Theme>["MuiTabs"] = {
 
 const MuiTab: Components<Theme>["MuiTab"] = {
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       minHeight: 32,
-      borderRadius: 8,
+      borderRadius: RADIUS_SM, // compact tab pills
       padding: "6px 16px",
       fontSize: "0.8125rem",
       fontWeight: 500,
       textTransform: "none" as const,
-      color: "#8a8680",
+      color: theme.palette.text.secondary,
       transition: "all 0.2s ease",
       "&.Mui-selected": {
-        backgroundColor: "rgba(200, 165, 92, 0.12)",
-        color: "#c8a55c",
+        backgroundColor: theme.palette.primary.border,
+        color: theme.palette.primary.main,
       },
       "&:hover": {
-        backgroundColor: "rgba(200, 165, 92, 0.06)",
-        color: "#e8e4dc",
+        backgroundColor: theme.palette.primary.faint,
+        color: theme.palette.text.primary,
       },
-    },
+    }),
   },
 };
 

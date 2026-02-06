@@ -1,4 +1,4 @@
-import { Components, Theme } from "@mui/material/styles";
+import { alpha, Components, Theme } from "@mui/material/styles";
 
 const MuiTextField: Components<Theme>["MuiTextField"] = {
   defaultProps: {
@@ -6,22 +6,21 @@ const MuiTextField: Components<Theme>["MuiTextField"] = {
     fullWidth: true,
   },
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       "& .MuiOutlinedInput-root": {
-        backgroundColor: "rgba(8, 8, 10, 0.6)",
-        borderRadius: 10,
+        backgroundColor: alpha(theme.palette.background.default, 0.6),
         fontSize: "0.9375rem",
         "& fieldset": {
-          borderColor: "rgba(200, 165, 92, 0.08)",
+          borderColor: theme.palette.primary.border,
           transition: "border-color 0.2s ease",
         },
         "&:hover fieldset": {
-          borderColor: "rgba(200, 165, 92, 0.2)",
+          borderColor: alpha(theme.palette.primary.main, 0.2),
         },
         "&.Mui-focused fieldset": {
-          borderColor: "#c8a55c",
+          borderColor: theme.palette.primary.main,
           borderWidth: 1,
-          boxShadow: "0 0 0 3px rgba(200, 165, 92, 0.1)",
+          boxShadow: `0 0 0 3px ${alpha(theme.palette.primary.main, 0.1)}`,
         },
       },
       "& .MuiInputLabel-root": {
@@ -29,19 +28,19 @@ const MuiTextField: Components<Theme>["MuiTextField"] = {
         fontWeight: 600,
         letterSpacing: "0.1em",
         textTransform: "uppercase",
-        color: "#8a8680",
+        color: theme.palette.text.secondary,
         "&.Mui-focused": {
-          color: "#c8a55c",
+          color: theme.palette.primary.main,
         },
       },
       "& .MuiOutlinedInput-input": {
-        color: "#e8e4dc",
+        color: theme.palette.text.primary,
         "&::placeholder": {
-          color: "#555250",
+          color: theme.palette.text.disabled,
           opacity: 1,
         },
       },
-    },
+    }),
   },
 };
 

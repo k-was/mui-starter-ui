@@ -1,48 +1,49 @@
-import { Components, Theme } from "@mui/material/styles";
+import { alpha, Components, Theme } from "@mui/material/styles";
+import { RADIUS_SM } from "../tokens";
 
 const MuiChip: Components<Theme>["MuiChip"] = {
   styleOverrides: {
     root: {
-      borderRadius: 8,
+      borderRadius: RADIUS_SM, // tighter radius for small pill shape
       fontWeight: 500,
       fontSize: "0.75rem",
       height: 28,
     },
-    filled: {
-      backgroundColor: "rgba(200, 165, 92, 0.1)",
-      color: "#c8a55c",
-      border: "1px solid rgba(200, 165, 92, 0.15)",
+    filled: ({ theme }) => ({
+      backgroundColor: alpha(theme.palette.primary.main, 0.1),
+      color: theme.palette.primary.main,
+      border: `1px solid ${theme.palette.primary.glow}`,
       "&:hover": {
-        backgroundColor: "rgba(200, 165, 92, 0.15)",
+        backgroundColor: theme.palette.primary.glow,
       },
-    },
-    outlined: {
-      borderColor: "rgba(200, 165, 92, 0.15)",
-      color: "#8a8680",
+    }),
+    outlined: ({ theme }) => ({
+      borderColor: theme.palette.primary.glow,
+      color: theme.palette.text.secondary,
       "&:hover": {
-        backgroundColor: "rgba(200, 165, 92, 0.06)",
+        backgroundColor: theme.palette.primary.faint,
       },
-    },
-    colorSuccess: {
-      backgroundColor: "rgba(107, 143, 113, 0.15)",
-      color: "#6b8f71",
-      border: "1px solid rgba(107, 143, 113, 0.2)",
-    },
-    colorWarning: {
-      backgroundColor: "rgba(229, 192, 123, 0.15)",
-      color: "#e5c07b",
-      border: "1px solid rgba(229, 192, 123, 0.2)",
-    },
-    colorInfo: {
-      backgroundColor: "rgba(97, 175, 239, 0.15)",
-      color: "#61afef",
-      border: "1px solid rgba(97, 175, 239, 0.2)",
-    },
-    colorError: {
-      backgroundColor: "rgba(224, 108, 117, 0.15)",
-      color: "#e06c75",
-      border: "1px solid rgba(224, 108, 117, 0.2)",
-    },
+    }),
+    colorSuccess: ({ theme }) => ({
+      backgroundColor: alpha(theme.palette.success.main, 0.15),
+      color: theme.palette.success.main,
+      border: `1px solid ${alpha(theme.palette.success.main, 0.2)}`,
+    }),
+    colorWarning: ({ theme }) => ({
+      backgroundColor: alpha(theme.palette.warning.main, 0.15),
+      color: theme.palette.warning.main,
+      border: `1px solid ${alpha(theme.palette.warning.main, 0.2)}`,
+    }),
+    colorInfo: ({ theme }) => ({
+      backgroundColor: alpha(theme.palette.info.main, 0.15),
+      color: theme.palette.info.main,
+      border: `1px solid ${alpha(theme.palette.info.main, 0.2)}`,
+    }),
+    colorError: ({ theme }) => ({
+      backgroundColor: alpha(theme.palette.error.main, 0.15),
+      color: theme.palette.error.main,
+      border: `1px solid ${alpha(theme.palette.error.main, 0.2)}`,
+    }),
   },
 };
 

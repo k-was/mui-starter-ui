@@ -1,4 +1,4 @@
-import { Components, Theme } from "@mui/material/styles";
+import { alpha, Components, Theme } from "@mui/material/styles";
 
 const MuiList: Components<Theme>["MuiList"] = {
   styleOverrides: {
@@ -10,36 +10,35 @@ const MuiList: Components<Theme>["MuiList"] = {
 
 const MuiListItemButton: Components<Theme>["MuiListItemButton"] = {
   styleOverrides: {
-    root: {
-      borderRadius: 10,
+    root: ({ theme }) => ({
       padding: "8px 12px",
       marginBottom: 2,
-      color: "#8a8680",
+      color: theme.palette.text.secondary,
       transition: "all 0.2s ease",
       "&:hover": {
-        backgroundColor: "rgba(200, 165, 92, 0.06)",
-        color: "#e8e4dc",
+        backgroundColor: theme.palette.primary.faint,
+        color: theme.palette.text.primary,
       },
       "&.Mui-selected": {
-        backgroundColor: "rgba(200, 165, 92, 0.10)",
-        color: "#c8a55c",
+        backgroundColor: alpha(theme.palette.primary.main, 0.1),
+        color: theme.palette.primary.main,
         "&:hover": {
-          backgroundColor: "rgba(200, 165, 92, 0.12)",
+          backgroundColor: theme.palette.primary.border,
         },
         "& .MuiListItemIcon-root": {
-          color: "#c8a55c",
+          color: theme.palette.primary.main,
         },
       },
-    },
+    }),
   },
 };
 
 const MuiListItemIcon: Components<Theme>["MuiListItemIcon"] = {
   styleOverrides: {
-    root: {
+    root: ({ theme }) => ({
       minWidth: 36,
-      color: "#8a8680",
-    },
+      color: theme.palette.text.secondary,
+    }),
   },
 };
 
